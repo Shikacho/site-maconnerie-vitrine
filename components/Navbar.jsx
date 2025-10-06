@@ -48,7 +48,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Menu desktop */}
         <ul className="hidden sm:flex gap-1">
           {items.map((it) => (
             <li key={it.href}>
