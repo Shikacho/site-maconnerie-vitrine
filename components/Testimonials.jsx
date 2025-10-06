@@ -17,9 +17,9 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-orange-100 py-20">
+    <section className="bg-brand-light py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-red-700 mb-12 text-center">
+        <h2 className="text-3xl font-bold text-brand.dark mb-12 text-center">
           Ce que disent nos clients
         </h2>
 
@@ -27,7 +27,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white shadow-md rounded-xl p-6 border-t-4 border-red-600 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+              className="bg-white shadow-md rounded-xl p-6 border-t-4 border-brand-dark flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
             >
               <p className="text-gray-700 italic mb-4 leading-relaxed">
                 “{t.text}”
@@ -40,7 +40,9 @@ export default function Testimonials() {
                       <Star key={idx} size={16} fill="currentColor" />
                     ))}
                 </div>
-                <p className="text-sm font-semibold text-red-700">{t.name}</p>
+                <p className="text-sm font-semibold text-brand.dark">
+                  {t.name}
+                </p>
               </div>
             </div>
           ))}
