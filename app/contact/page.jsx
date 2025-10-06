@@ -29,13 +29,13 @@ export default function ContactPage() {
           <Card>
             <div className="p-6 space-y-3 text-sm">
               <p className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-red-600" /> {BRAND.phone}
+                <Phone className="w-4 h-4 text-brand-dark" /> {BRAND.phone}
               </p>
               <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-red-600" /> {BRAND.email}
+                <Mail className="w-4 h-4 text-brand-dark" /> {BRAND.email}
               </p>
               <p className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-red-600" /> {BRAND.address}
+                <MapPin className="w-4 h-4 text-brand-dark" /> {BRAND.address}
               </p>
               <p className="text-gray-600">Nous répondons sous 24 h ouvrées.</p>
             </div>
