@@ -10,35 +10,36 @@ export default function AboutPage() {
         {/* Texte principal */}
         <div className="md:col-span-2 space-y-4 text-gray-800">
           <p>
-            <span className="font-semibold text-red-700">{BRAND.name}</span>{" "}
-            accompagne particuliers et pros pour des travaux de maçonnerie
-            durable : fondations, murs porteurs, ouvertures, dalles, extensions
-            et rénovations de façade.
+            <span className="font-semibold text-brand-dark">{BRAND.name}</span>{" "}
+            accompagne particuliers et professionnels pour des travaux de
+            maçonnerie générale : fondations, murs porteurs, ouvertures, dalles,
+            extensions et rénovations de façade. Intervention sur{" "}
+            {BRAND.address}.
           </p>
 
           {/* Liste des infos */}
           <ul className="grid sm:grid-cols-2 gap-4 text-sm">
             <li className="flex items-start gap-3">
-              <ShieldCheck className="w-5 h-5 mt-0.5 text-red-600" />{" "}
+              <ShieldCheck className="w-5 h-5 mt-0.5 text-brand-dark" />{" "}
               {BRAND.insurance}
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 mt-0.5 text-red-600" /> Zone : Paris &
-              Île-de-France
+              <MapPin className="w-5 h-5 mt-0.5 text-brand-dark" />
+              Zone : Pyrénées-Orientales (66), Hérault (34), Aude (11)
             </li>
             <li className="flex items-start gap-3">
-              <Hammer className="w-5 h-5 mt-0.5 text-red-600" /> Neuf &
+              <Hammer className="w-5 h-5 mt-0.5 text-brand-dark" /> Neuf &
               rénovation
             </li>
             <li className="flex items-start gap-3">
-              <Ruler className="w-5 h-5 mt-0.5 text-red-600" /> Conseils
+              <Ruler className="w-5 h-5 mt-0.5 text-brand-dark" /> Conseils
               techniques & devis gratuits
             </li>
           </ul>
 
           {/* Encadré engagements */}
-          <div className="p-4 rounded-xl bg-orange-50 ring-1 ring-orange-200 text-sm">
-            <p className="font-medium text-red-700">Nos engagements</p>
+          <div className="p-4 rounded-xl bg-brand-light ring-brand/30 text-sm">
+            <p className="font-medium text-brand-dark">Nos engagements</p>
             <ul className="list-disc pl-5 mt-1 space-y-1 text-gray-800">
               <li>Respect des délais et du voisinage.</li>
               <li>Chantier propre & sécurisé.</li>
@@ -54,8 +55,8 @@ export default function AboutPage() {
             alt="Équipe au travail"
             className="h-72 w-full object-cover"
           />
-          <div className="p-5 text-sm bg-orange-50">
-            <p className="font-semibold text-red-700">{BRAND.name}</p>
+          <div className="p-5 text-sm bg-brand/20">
+            <p className="font-semibold text-brand-dark">{BRAND.name}</p>
             <p className="text-gray-800 mt-1">
               Entreprise familiale – 15 ans d’expérience cumulée.
             </p>

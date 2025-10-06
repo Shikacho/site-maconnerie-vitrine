@@ -27,7 +27,7 @@ export default function QuoteForm() {
         <div className="grid sm:grid-cols-2 gap-4">
           <Field label="Type de prestation *" name="service">
             <select
-              className="w-full rounded-xl border-gray-300 focus:ring-2 focus:ring-gray-900"
+              className="w-full rounded-xl border-gray-300 focus:ring-brand-dark focus:border-brand"
               value={service}
               onChange={(e) => setService(e.target.value)}
             >
