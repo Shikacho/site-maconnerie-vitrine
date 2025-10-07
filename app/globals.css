@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scrollbar-gutter: stable; } /* évite le shift quand la barre de scroll apparait */
+html { scrollbar-gutter: stable; } 
 
 /* Style global */
 body {
