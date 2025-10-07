@@ -19,7 +19,7 @@ export default function ContactForm() {
           <Field label="Nom *" name="name" required />
           <Field label="Email *" name="email" type="email" required />
           <Field label="Téléphone *" name="phone" required />
-          <Field label="Ville / CP" name="city" />
+          <Field label="Ville / CP (dans 66 / 34 / 11)" name="city" />
         </div>
         <Field label="Votre message" name="message" textarea rows={5} />
         <input
@@ -65,7 +65,7 @@ export function Field({
           rows={rows}
           required={required}
           placeholder={placeholder}
-          className="mt-1 w-full rounded-xl border-gray-300 focus:ring-2 focus:ring-gray-900"
+          className="mt-1 w-full rounded-xl border-gray-300 focus:ring-brand-dark focus:border-brand"
         />
       ) : children ? (
         <div className="mt-1">{children}</div>
@@ -75,7 +75,7 @@ export function Field({
           type={type}
           required={required}
           placeholder={placeholder}
-          className="mt-1 w-full rounded-xl border-gray-300 focus:ring-2 focus:ring-gray-900"
+          className="mt-1 w-full rounded-xl border-gray-300 focus:ring-brand-dark focus:border-brand"
         />
       )}
     </label>
