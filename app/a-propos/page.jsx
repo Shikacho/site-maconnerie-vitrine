@@ -7,7 +7,6 @@ export default function AboutPage() {
   return (
     <Section title="À propos" subtitle="Qui sommes-nous ?">
       <div className="grid md:grid-cols-3 gap-8 items-start">
-        {/* Texte principal */}
         <div className="md:col-span-2 space-y-4 text-gray-800">
           <p>
             <span className="font-semibold text-brand-dark">{BRAND.name}</span>{" "}
@@ -17,7 +16,6 @@ export default function AboutPage() {
             {BRAND.address}.
           </p>
 
-          {/* Liste des infos */}
           <ul className="grid sm:grid-cols-2 gap-4 text-sm">
             <li className="flex items-start gap-3">
               <ShieldCheck className="w-5 h-5 mt-0.5 text-brand-dark" />{" "}
@@ -37,7 +35,6 @@ export default function AboutPage() {
             </li>
           </ul>
 
-          {/* Encadré engagements */}
           <div className="p-4 rounded-xl bg-brand-light ring-brand/30 text-sm">
             <p className="font-medium text-brand-dark">Nos engagements</p>
             <ul className="list-disc pl-5 mt-1 space-y-1 text-gray-800">
@@ -48,7 +45,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Carte avec photo */}
         <Card>
           <img
             src="https://source.unsplash.com/800x900/?mason,work"

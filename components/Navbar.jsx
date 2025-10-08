@@ -31,10 +31,8 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto h-16 sm:h-20 px-4 flex items-center justify-between text-white relative">
-        {/* Logo centré sur mobile / à gauche sur desktop */}
         <div className="flex-1 flex justify-center sm:justify-start items-center">
           <Link href="/" className="block">
-            {/* ✅ Mobile inchangé / Desktop un peu plus grand */}
             <div className="relative w-[160px] h-[55px] sm:w-[175px] sm:h-[58px] flex items-center">
               <Image
                 src="/logo-talbat.png"
@@ -61,7 +59,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Burger mobile */}
         <button
           onClick={() => setOpen(!open)}
           className="sm:hidden absolute right-4 p-2 rounded-md hover:bg-brand/25 focus:outline-none focus:ring-2 focus:ring-brand-light"
@@ -71,7 +68,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menu mobile */}
       {open && (
         <div className="sm:hidden bg-brand-dark text-white border-t border-brand-light/20 shadow-lg animate-slideDown">
           <ul className="flex flex-col items-center py-4 space-y-3">

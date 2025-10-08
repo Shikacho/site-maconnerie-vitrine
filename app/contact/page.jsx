@@ -1,27 +1,14 @@
-"use client";
-
 import Section from "../../components/Section";
 import Card from "../../components/Card";
 import ContactForm from "../../components/ContactForm";
 import { BRAND } from "../../lib/brand";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import LeafletMapShell from "../../components/LeafletMapShell";
 
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-  iconUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-});
+const POSITION = [43.1881, 2.9884];
+const ADDRESS = "76 Avenue Anatole France, 11100 Narbonne, France";
 
 export default function ContactPage() {
-  const position = [43.1843, 3.004];
-
   return (
     <Section title="Nous contacter" subtitle="Parlons de votre projet">
       <div className="grid md:grid-cols-2 gap-8">
@@ -41,26 +28,11 @@ export default function ContactPage() {
             </div>
           </Card>
 
-          <div className="w-full h-72 rounded-xl overflow-hidden shadow-md">
-            <MapContainer
-              center={position}
-              zoom={13}
-              scrollWheelZoom={false}
-              className="h-full w-full"
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={position}>
-                <Popup>
-                  <strong>{BRAND.name}</strong>
-                  <br />
-                  Maçonnerie générale à Narbonne
-                </Popup>
-              </Marker>
-            </MapContainer>
-          </div>
+          <LeafletMapShell
+            position={POSITION}
+            popupTitle={BRAND.name}
+            popupAddress={ADDRESS}
+          />
         </div>
 
         <ContactForm />
