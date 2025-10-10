@@ -12,8 +12,9 @@ export default function QuoteForm() {
   async function onSubmit(e) {
     e.preventDefault();
     setStatus("loading");
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("done");
+    const form = new FormData(e.currentTarget);
+    const res = await fetch("/api/quote", { method: "POST", body: form });
+    setStatus(res.ok ? "done" : "idle");
   }
   return (
     <Card>
@@ -27,7 +28,8 @@ export default function QuoteForm() {
         <div className="grid sm:grid-cols-2 gap-4">
           <Field label="Type de prestation *" name="service">
             <select
-              className="w-full rounded-xl border-gray-300 focus:ring-brand-dark focus:border-brand"
+              className="w-full rounded-xl border border-gray-300 bg-white text-gray-900
+             outline-none focus:border-brand focus:ring-2 focus:ring-brand/40 transition-shadow"
               value={service}
               onChange={(e) => setService(e.target.value)}
             >

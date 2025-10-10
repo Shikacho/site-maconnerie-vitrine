@@ -62,6 +62,8 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
         ))}
       </div>
 
+      {/* Lightbox */}
+      {/* Lightbox */}
       {open && (
         <div
           className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
@@ -70,18 +72,34 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
           role="dialog"
         >
           <div
-            className="relative max-w-5xl w-full aspect-[4/3] bg-black rounded-xl overflow-hidden"
+            className="relative max-w-[95vw] max-h-[90vh] w-auto h-auto"
             onClick={(e) => e.stopPropagation()}
+            // 👇 Swipe mobile
+            onTouchStart={(e) =>
+              (e.currentTarget.dataset.x = e.touches[0].clientX)
+            }
+            onTouchEnd={(e) => {
+              const start = Number(e.currentTarget.dataset.x || 0);
+              const end = e.changedTouches[0].clientX;
+              const delta = end - start;
+              if (Math.abs(delta) > 40) {
+                setIndex((n) =>
+                  delta < 0
+                    ? (n + 1) % images.length
+                    : (n - 1 + images.length) % images.length
+                );
+              }
+            }}
           >
-            <Image
+            {/* Image sans bandes noires */}
+            <img
               src={images[index]}
               alt={alt(images[index], index)}
-              fill
-              className="object-contain"
-              sizes="100vw"
-              priority
+              className="block max-w-[95vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg"
+              draggable={false}
             />
 
+            {/* Boutons / compteur (inchangés) */}
             <button
               onClick={close}
               className="absolute top-2 right-2 px-3 py-1.5 rounded-lg bg-black/60 text-white hover:bg-black/80"
@@ -89,7 +107,6 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
             >
               Fermer ✕
             </button>
-
             <button
               onClick={() =>
                 setIndex((n) => (n - 1 + images.length) % images.length)
@@ -107,7 +124,7 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
               ›
             </button>
 
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-white/90 bg-black/50 px-2 py-1 rounded">
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-xs text-white/90 bg-black/50 px-2 py-1 rounded">
               {index + 1} / {images.length} — {alt(images[index], index)}
             </div>
           </div>

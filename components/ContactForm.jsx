@@ -9,8 +9,9 @@ export default function ContactForm() {
   async function onSubmit(e) {
     e.preventDefault();
     setStatus("loading");
-    await new Promise((r) => setTimeout(r, 800));
-    setStatus("done");
+    const form = new FormData(e.currentTarget);
+    const res = await fetch("/api/contact", { method: "POST", body: form });
+    setStatus(res.ok ? "done" : "idle");
   }
   return (
     <Card>
@@ -56,6 +57,10 @@ export function Field({
   required,
   placeholder,
 }) {
+  const base =
+    "mt-1 w-full rounded-xl border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 " +
+    "outline-none focus:border-brand focus:ring-2 focus:ring-brand/40 transition-shadow";
+
   return (
     <label className="block text-sm">
       <span className="font-medium">{label}</span>
@@ -65,7 +70,7 @@ export function Field({
           rows={rows}
           required={required}
           placeholder={placeholder}
-          className="mt-1 w-full rounded-xl border-gray-300 focus:ring-brand-dark focus:border-brand"
+          className={base}
         />
       ) : children ? (
         <div className="mt-1">{children}</div>
@@ -75,7 +80,7 @@ export function Field({
           type={type}
           required={required}
           placeholder={placeholder}
-          className="mt-1 w-full rounded-xl border-gray-300 focus:ring-brand-dark focus:border-brand"
+          className={base}
         />
       )}
     </label>

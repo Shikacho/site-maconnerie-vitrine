@@ -28,7 +28,7 @@ export default function Home() {
             TALBAT CONSTRUCTION
           </h1>
           <p className="mt-5 sm:mt-6 mb-8 sm:mb-10 max-w-2xl text-brand-dark/90 leading-relaxed">
-            {BRAND.name} — maçonnerie générale basée à Narbonne. Nous
+            {BRAND.name} — Maçonnerie générale basée à Narbonne. Nous
             intervenons en {BRAND.address} : fondations, murs porteurs,
             ouvertures, dalles, extensions et façades. Devis gratuit sous 24h
             ouvrées.
@@ -46,6 +46,12 @@ export default function Home() {
               className="px-5 py-3 rounded-xl bg-brand/20 text-brand-dark hover:bg-brand/30 transition"
             >
               En savoir plus
+            </Link>
+            <Link
+              href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}
+              className="px-5 py-3 rounded-xl bg-white text-brand-dark ring-1 ring-brand-dark/20 hover:bg-brand-light transition"
+            >
+              Appeler
             </Link>
           </div>
         </div>
@@ -70,10 +76,6 @@ export default function Home() {
             Voir toutes les réalisations →
           </Link>
         </div>
-      </section>
-
-      <section className="bg-brand-light py-16">
-        <Testimonials />
       </section>
     </div>
   );
