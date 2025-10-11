@@ -1,19 +1,26 @@
+// app/layout.jsx
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import MobileHeader from "../components/MobileHeader";
 
 export const metadata = {
-  title: "TALBAT CONSTRUCTION – Maçonnerie générale",
-  description:
-    "Rénovation, dallage, extensions et façades – Secteurs 66 • 34 • 11",
+  title: "TALBAT CONSTRUCTION",
+  description: "Maçonnerie générale à Narbonne",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className="min-h-screen bg-brand-light text-brand-dark flex flex-col">
+      <body className="bg-brand-light">
+        {/* Desktop only */}
         <Navbar />
-        <main className="flex-1">{children}</main>
+
+        {/* Mobile only (sticky top) */}
+        <MobileHeader />
+
+        <main>{children}</main>
+
         <Footer />
       </body>
     </html>

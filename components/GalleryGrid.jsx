@@ -1,3 +1,4 @@
+// components/GalleryGrid.jsx
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
@@ -38,10 +39,11 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
           <button
             key={src}
             onClick={() => openAt(i)}
-            className="group rounded-2xl overflow-hidden ring-1 ring-brand/30 bg-white shadow hover:shadow-lg transition text-left"
+            className="group rounded-2xl overflow-hidden ring-1 ring-brand/30 bg-white shadow hover:shadow-lg transition text-left flex flex-col h-full"
             aria-label={`Agrandir: ${alt(src, i)}`}
           >
-            <div className="relative w-full h-48 md:h-56">
+            {/* ✅ Image avec ratio fixe pour une hauteur identique partout */}
+            <div className="relative w-full aspect-[4/3]">
               <Image
                 src={src}
                 alt={alt(src, i)}
@@ -53,17 +55,19 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
               />
             </div>
 
+            {/* ✅ Légende de hauteur constante pour éviter que certaines cartes s'étirent */}
             {showCaptions && (
-              <div className="p-3 text-sm text-brand-dark/90">
-                {alt(src, i)}
+              <div className="p-3 text-sm text-brand-dark/90 min-h-[48px] flex items-center">
+                <span className="block overflow-hidden text-ellipsis">
+                  {alt(src, i)}
+                </span>
               </div>
             )}
           </button>
         ))}
       </div>
 
-      {/* Lightbox */}
-      {/* Lightbox */}
+      {/* Lightbox inchangée */}
       {open && (
         <div
           className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
@@ -72,34 +76,18 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
           role="dialog"
         >
           <div
-            className="relative max-w-[95vw] max-h-[90vh] w-auto h-auto"
+            className="relative max-w-5xl w-full aspect-[4/3] bg-black rounded-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
-            // 👇 Swipe mobile
-            onTouchStart={(e) =>
-              (e.currentTarget.dataset.x = e.touches[0].clientX)
-            }
-            onTouchEnd={(e) => {
-              const start = Number(e.currentTarget.dataset.x || 0);
-              const end = e.changedTouches[0].clientX;
-              const delta = end - start;
-              if (Math.abs(delta) > 40) {
-                setIndex((n) =>
-                  delta < 0
-                    ? (n + 1) % images.length
-                    : (n - 1 + images.length) % images.length
-                );
-              }
-            }}
           >
-            {/* Image sans bandes noires */}
-            <img
+            <Image
               src={images[index]}
               alt={alt(images[index], index)}
-              className="block max-w-[95vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg"
-              draggable={false}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
             />
 
-            {/* Boutons / compteur (inchangés) */}
             <button
               onClick={close}
               className="absolute top-2 right-2 px-3 py-1.5 rounded-lg bg-black/60 text-white hover:bg-black/80"
@@ -107,6 +95,7 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
             >
               Fermer ✕
             </button>
+
             <button
               onClick={() =>
                 setIndex((n) => (n - 1 + images.length) % images.length)
@@ -124,7 +113,7 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
               ›
             </button>
 
-            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-xs text-white/90 bg-black/50 px-2 py-1 rounded">
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-white/90 bg-black/50 px-2 py-1 rounded">
               {index + 1} / {images.length} — {alt(images[index], index)}
             </div>
           </div>

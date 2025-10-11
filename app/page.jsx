@@ -5,8 +5,8 @@ import Testimonials from "../components/Testimonials";
 import { BRAND } from "../lib/brand";
 import { GALLERY } from "../lib/gallery";
 import GalleryGrid from "../components/GalleryGrid";
+import { Phone } from "lucide-react";
 
-// Titres/captions pour les 6 premières (s’affichent sous les vignettes)
 const TITLE_MAP = {
   "/realisations/1.jpg": "Charpente bois sur murs en briques",
   "/realisations/2.jpg": "Allée gravillonnée avec bordures",
@@ -17,6 +17,7 @@ const TITLE_MAP = {
 };
 const getTitle = (src) =>
   TITLE_MAP[src] ?? "Réalisation de maçonnerie – Talbat Construction";
+
 export default function Home() {
   const first6 = GALLERY.slice(0, 6);
 
@@ -33,7 +34,6 @@ export default function Home() {
             ouvertures, dalles, extensions et façades. Devis gratuit sous 24h
             ouvrées.
           </p>
-
           <div className="flex gap-3">
             <Link
               href="/devis"
@@ -49,8 +49,13 @@ export default function Home() {
             </Link>
             <Link
               href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}
-              className="px-5 py-3 rounded-xl bg-white text-brand-dark ring-1 ring-brand-dark/20 hover:bg-brand-light transition"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl
+             bg-emerald-600 text-white hover:bg-emerald-700
+             ring-1 ring-emerald-900/10 shadow-sm
+             focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
+              aria-label="Appeler"
             >
+              <Phone className="w-4 h-4" />
               Appeler
             </Link>
           </div>

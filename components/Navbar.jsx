@@ -1,3 +1,4 @@
+// components/Navbar.jsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -26,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`hidden sm:block sticky top-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-brand-dark/95 backdrop-blur shadow-md" : "bg-brand-dark"
       }`}
     >

@@ -32,6 +32,7 @@ export default function ContactPage() {
             position={POSITION}
             popupTitle={BRAND.name}
             popupAddress={ADDRESS}
+            zoom={14}
           />
         </div>
 
