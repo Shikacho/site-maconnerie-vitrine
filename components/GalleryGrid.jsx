@@ -1,3 +1,4 @@
+// components/GalleryGrid.jsx
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
@@ -51,7 +52,16 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
                 placeholder="empty"
                 priority={i < 2}
               />
+              {/* ✅ Watermark bas-gauche (vignette) */}
+              <img
+                src="/logo-talbat.png"
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute left-2 bottom-2 h-6 w-auto opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]"
+                draggable={false}
+              />
             </div>
+
             {showCaptions && (
               <div className="p-3 text-sm text-brand-dark/90 min-h-[48px] flex items-center">
                 <span className="block overflow-hidden text-ellipsis">
@@ -62,6 +72,8 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
           </button>
         ))}
       </div>
+
+      {/* Lightbox */}
       {open && (
         <div
           className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
@@ -94,6 +106,16 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
               className="block max-w-[95vw] max-h-[85vh] object-contain rounded-xl shadow-lg"
               draggable={false}
             />
+
+            {/* ✅ Watermark bas-gauche (lightbox) */}
+            <img
+              src="/logo-talbat.png"
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute left-3 bottom-3 h-8 w-auto opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]"
+              draggable={false}
+            />
+
             <button
               onClick={close}
               className="absolute top-2 right-2 px-3 py-1.5 rounded-lg bg-black/60 text-white hover:bg-black/80"

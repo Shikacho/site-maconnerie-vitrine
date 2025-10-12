@@ -34,28 +34,30 @@ export default function Home() {
             ouvertures, dalles, extensions et façades. Devis gratuit sous 24h
             ouvrées.
           </p>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <Link
               href="/devis"
-              className="px-5 py-3 rounded-xl bg-brand-dark text-white hover:bg-brand transition"
+              className="inline-flex items-center justify-center px-5 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl
+               bg-brand-dark text-white hover:bg-brand transition"
             >
               Demander un devis
             </Link>
+
             <Link
               href="/a-propos"
-              className="px-5 py-3 rounded-xl bg-brand/20 text-brand-dark hover:bg-brand/30 transition"
+              className="inline-flex items-center justify-center px-5 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl
+               bg-brand/20 text-brand-dark hover:bg-brand/30 transition"
             >
               En savoir plus
             </Link>
+
             <Link
               href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl
-             bg-emerald-600 text-white hover:bg-emerald-700
-             ring-1 ring-emerald-900/10 shadow-sm
-             focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl
+               bg-emerald-600 text-white hover:bg-emerald-700 ring-1 ring-emerald-900/10 shadow-sm
+               focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
               aria-label="Appeler"
             >
-              <Phone className="w-4 h-4" />
               Appeler
             </Link>
           </div>

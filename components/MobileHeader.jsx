@@ -56,7 +56,16 @@ export default function MobileHeader() {
       )}
 
       {open && (
-        <div className="border-t border-white/10 bg-brand-dark text-white">
+        <button
+          type="button"
+          aria-label="Fermer le menu"
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 z-[59] bg-transparent"
+        />
+      )}
+
+      {open && (
+        <div className="relative z-[60] border-t border-white/10 bg-brand-dark text-white shadow-lg">
           <nav className="flex flex-col">
             {items.map((it) => (
               <Link
