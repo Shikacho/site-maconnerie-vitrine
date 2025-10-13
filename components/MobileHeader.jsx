@@ -50,7 +50,7 @@ export default function MobileHeader() {
       </div>
 
       {BRAND?.baseline && (
-        <p className="text-center text-[13px] leading-5 text-white/90 tracking-wide pb-3 px-4">
+        <p className="text-center text-[17px] leading-5 text-white/90 tracking-wide pb-3 px-4">
           {BRAND.baseline}
         </p>
       )}
@@ -63,7 +63,6 @@ export default function MobileHeader() {
           className="fixed inset-0 z-[59] bg-transparent"
         />
       )}
-
       {open && (
         <div className="relative z-[60] border-t border-white/10 bg-brand-dark text-white shadow-lg">
           <nav className="flex flex-col">

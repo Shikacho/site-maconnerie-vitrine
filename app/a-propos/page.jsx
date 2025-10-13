@@ -11,9 +11,9 @@ export default function AboutPage() {
         <div className="space-y-3">
           <p className="text-lg leading-relaxed">
             <span className="font-semibold text-brand-dark">{BRAND.name}</span>{" "}
-            accompagne particuliers et professionnels pour des travaux de
-            maçonnerie générale : fondations, murs porteurs, ouvertures, dalles,
-            extensions et rénovations de façade.
+            — À vos côtés pour bâtir votre projet, du rêve au concret. Tous
+            travaux de construction, réalisés avec soin à Narbonne et en{" "}
+            {BRAND.address}.
           </p>
           <p>
             Intervention en <span className="font-medium">{BRAND.address}</span>
@@ -21,7 +21,6 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Points forts (pas de bg-white : on reste sur le fond du site) */}
         <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <li className="rounded-xl ring-1 ring-brand/20 p-4 flex items-start gap-3 bg-brand-light/60">
             <ShieldCheck className="w-5 h-5 mt-0.5 text-brand-dark" />

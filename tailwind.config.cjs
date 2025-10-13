@@ -5,10 +5,12 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#9B7B52", // marron principal (toit/cercle)
-          dark: "#5A4B3A", // marron foncé (TALBAT)
-          light: "#F4EDE3", // beige très clair (fond)
+          DEFAULT: "#C2A968",
+          dark: "#2B2B2B",
+          light: "#eeeeedff",
+          hover: "#AF9457",
         },
+        ink: "#1E1E1E",
       },
     },
   },

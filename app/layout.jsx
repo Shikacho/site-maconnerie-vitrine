@@ -1,4 +1,3 @@
-// app/layout.jsx
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -13,10 +12,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body className="bg-brand-light">
-        {/* Desktop only */}
         <Navbar />
 
-        {/* Mobile only (sticky top) */}
         <MobileHeader />
 
         <main>{children}</main>

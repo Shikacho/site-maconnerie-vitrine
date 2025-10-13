@@ -38,6 +38,7 @@ export default function QuoteForm() {
               ))}
               <option>Ouverture de mur</option>
               <option>Dalle béton</option>
+              <option>Autres</option>
             </select>
           </Field>
           <Field
@@ -73,8 +74,8 @@ export default function QuoteForm() {
             {status === "loading"
               ? " Envoi…"
               : status === "done"
-              ? " Demande envoyée"
-              : " Envoyer ma demande"}
+                ? " Demande envoyée"
+                : " Envoyer ma demande"}
           </Button>
         </div>
       </form>

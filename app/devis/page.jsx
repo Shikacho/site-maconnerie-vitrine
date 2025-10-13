@@ -5,11 +5,9 @@ import QuoteForm from "../../components/QuoteForm";
 export default function QuotePage() {
   return (
     <Section title="Demander un devis" subtitle="Gratuit et sans engagement">
-      {/* ✅ empêche l'étirement vertical */}
       <div className="grid md:grid-cols-2 items-start gap-8">
         <QuoteForm />
 
-        {/* ✅ card à hauteur de son contenu */}
         <div className="self-start">
           <Card>
             <div className="p-6">
@@ -22,7 +20,6 @@ export default function QuotePage() {
                 <li>Nous vous appelons pour affiner les détails.</li>
                 <li>Vous recevez un devis sous 48 h.</li>
               </ol>
-              {/* image retirée */}
             </div>
           </Card>
         </div>

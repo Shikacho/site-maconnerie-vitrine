@@ -1,4 +1,3 @@
-// components/GalleryGrid.jsx
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
@@ -52,7 +51,6 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
                 placeholder="empty"
                 priority={i < 2}
               />
-              {/* ✅ Watermark bas-gauche (vignette) */}
               <img
                 src="/logo-talbat.png"
                 alt=""
@@ -73,7 +71,6 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
         ))}
       </div>
 
-      {/* Lightbox */}
       {open && (
         <div
           className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
@@ -107,7 +104,6 @@ export default function GalleryGrid({ images, getAlt, showCaptions = false }) {
               draggable={false}
             />
 
-            {/* ✅ Watermark bas-gauche (lightbox) */}
             <img
               src="/logo-talbat.png"
               alt=""

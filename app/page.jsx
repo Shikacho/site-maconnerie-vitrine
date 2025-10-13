@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Testimonials from "../components/Testimonials";
 import { BRAND } from "../lib/brand";
 import { GALLERY } from "../lib/gallery";
 import GalleryGrid from "../components/GalleryGrid";
@@ -23,47 +22,54 @@ export default function Home() {
 
   return (
     <div>
+      {/* HERO */}
       <section className="bg-brand-light py-16">
         <div className="max-w-6xl mx-auto px-4 flex flex-col justify-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-brand-dark">
-            TALBAT CONSTRUCTION
+            <span className="text-brand">TALBAT</span> CONSTRUCTION
           </h1>
+
           <p className="mt-5 sm:mt-6 mb-8 sm:mb-10 max-w-2xl text-brand-dark/90 leading-relaxed">
-            {BRAND.name} — Maçonnerie générale basée à Narbonne. Nous
-            intervenons en {BRAND.address} : fondations, murs porteurs,
-            ouvertures, dalles, extensions et façades. Devis gratuit sous 24h
-            ouvrées.
+            {BRAND.name} — À vos côtés pour bâtir votre projet, du rêve au
+            concret. Tous travaux de construction, réalisés avec soin à Narbonne
+            et en {BRAND.address}. Devis gratuit sous 24h ouvrées.
           </p>
+
           <div className="flex flex-wrap gap-3">
+            {/* CTA principal : sombre (gris), hover plus sombre */}
             <Link
               href="/devis"
               className="inline-flex items-center justify-center px-5 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl
-               bg-brand-dark text-white hover:bg-brand transition"
+                         bg-brand-dark text-white hover:bg-black transition"
             >
               Demander un devis
             </Link>
 
+            {/* CTA secondaire : outline doré */}
             <Link
               href="/a-propos"
               className="inline-flex items-center justify-center px-5 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl
-               bg-brand/20 text-brand-dark hover:bg-brand/30 transition"
+                         border border-brand text-brand hover:bg-brand/10 transition"
             >
               En savoir plus
             </Link>
 
+            {/* Appeler : bouton téléphone dédié (vert lisible) */}
             <Link
               href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl
-               bg-emerald-600 text-white hover:bg-emerald-700 ring-1 ring-emerald-900/10 shadow-sm
-               focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
+                         bg-emerald-600 text-white hover:bg-emerald-700 ring-1 ring-emerald-900/10 shadow-sm
+                         focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
               aria-label="Appeler"
             >
+              <Phone className="w-4 h-4" />
               Appeler
             </Link>
           </div>
         </div>
       </section>
 
+      {/* RÉALISATIONS */}
       <section className="bg-brand-light py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-semibold text-brand-dark mb-8">

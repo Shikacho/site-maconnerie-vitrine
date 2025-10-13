@@ -21,6 +21,7 @@ export default function LeafletMapShell({
 
         const L = leaflet.default || leaflet;
         if (!L.Icon.Default._leafletIconPatched) {
+          // patch icônes
           delete L.Icon.Default.prototype._getIconUrl;
           L.Icon.Default.mergeOptions({
             iconRetinaUrl:
@@ -57,7 +58,7 @@ export default function LeafletMapShell({
   const { MapContainer, TileLayer, Marker, Popup } = mods;
 
   return (
-    <div className="w-full h-72 rounded-xl overflow-hidden shadow-md overscroll-contain">
+    <div className="relative z-0 w-full h-72 rounded-xl overflow-hidden shadow-md overscroll-contain">
       <MapContainer
         center={position}
         zoom={zoom}
@@ -66,6 +67,7 @@ export default function LeafletMapShell({
         wheelPxPerZoomLevel={60}
         zoomSnap={0.25}
         className="h-full w-full overscroll-contain"
+        style={{ zIndex: 0 }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'

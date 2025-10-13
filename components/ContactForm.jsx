@@ -29,8 +29,8 @@ export default function ContactForm() {
           tabIndex={-1}
           autoComplete="off"
         />
-        <div className="flex items-center justify-between">
-          <p className="text-xs text-gray-500">
+        <div className="mt-2 flex items-center justify-between px-1 sm:px-2">
+          <p className="text-xs text-gray-500 mr-3">
             En envoyant, vous acceptez d’être recontacté(e).
           </p>
           <Button type="submit" variant="primary">
@@ -38,8 +38,8 @@ export default function ContactForm() {
             {status === "loading"
               ? " Envoi…"
               : status === "done"
-              ? " Envoyé"
-              : " Envoyer"}
+                ? " Envoyé"
+                : " Envoyer"}
           </Button>
         </div>
       </form>
