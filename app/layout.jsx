@@ -1,4 +1,3 @@
-// app/layout.jsx
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -20,9 +19,18 @@ export const metadata = {
     title: "TALBAT CONSTRUCTION",
     description:
       "Maçonnerie générale à Narbonne et alentours. Tous travaux de construction.",
-    images: ["/logo-talbat.png"], // place un visuel dans /public si tu veux
+    images: ["/logo-talbat.png"],
   },
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-talbat.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    images: [{ url: "/logo-talbat.png", width: 512, height: 512 }],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -30,9 +38,10 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Contractor",
     name: "TALBAT CONSTRUCTION",
+    url: "https://maison-talbat.com",
     telephone: "06 43 92 08 73",
     email: "talb.a.t@hotmail.com",
-    url: "https://maison-talbat.com",
+    logo: "https://maison-talbat.com/logo-talbat.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: "76 Avenue Anatole France",
@@ -47,25 +56,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body className="bg-brand-light min-h-screen flex flex-col">
-        {/* Mobile only */}
         <div className="sm:hidden">
           <MobileHeader />
         </div>
-
-        {/* Desktop only */}
         <div className="hidden sm:block">
           <Navbar />
         </div>
-
-        {/* espace sous l’en-tête desktop (navbar sticky ~80px) */}
         <main className="flex-1 sm:pt-20">{children}</main>
-
         <Footer />
-
-        {/* JSON-LD LocalBusiness */}
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </body>
