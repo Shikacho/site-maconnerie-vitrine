@@ -20,7 +20,7 @@ export const metadata = {
     title: "TALBAT CONSTRUCTION",
     description:
       "Maçonnerie générale à Narbonne et alentours. Tous travaux de construction.",
-    images: ["/og-image.jpg"], // place un visuel dans /public si tu veux
+    images: ["/logo-talbat.png"], // place un visuel dans /public si tu veux
   },
   icons: { icon: "/favicon.ico" },
 };
